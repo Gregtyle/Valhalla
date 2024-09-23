@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roles</title>
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="estilos/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="d-flex" id="wrapper">
+        <div class="bg-dark border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading text-white">Navegación</div>
+            <div class="list-group list-group-flush">
+                <a href="dashboard.html" class="list-group-item list-group-item-action bg-dark text-white">Dashboard</a>
+                <a href="roles.html" class="list-group-item list-group-item-action bg-dark text-white">Roles</a>
+                <a href="usuarios.html" class="list-group-item list-group-item-action bg-dark text-white">Usuarios</a>
+                <a href="clientes.html" class="list-group-item list-group-item-action bg-dark text-white">Clientes</a>
+                <a href="habitaciones.html" class="list-group-item list-group-item-action bg-dark text-white">Habitaciones</a>
+                <a href="servicios.html" class="list-group-item list-group-item-action bg-dark text-white">Servicios</a>
+                <a href="paquetes.html" class="list-group-item list-group-item-action bg-dark text-white">Paquetes</a>
+                <a href="hospedaje.html" class="list-group-item list-group-item-action bg-dark text-white">Hospedaje</a>
+                <a href="reservas.html" class="list-group-item list-group-item-action bg-dark text-white">Reservas</a>
+                <a href="Abono.html" class="list-group-item list-group-item-action bg-dark text-white">Abono</a>
+                <div class="abajo">
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-white">Configuración</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div id="page-content-wrapper">
+            <!-- Header -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div class="container-fluid">
+                    <button class="btn btn-primary" id="menu-toggle">☰</button>
+                    <div class="mx-auto text-center">
+                        <h2 class="Empresa">Valhalla Glamping</h2>
+                    </div>
+                    <div class="dropdown">
+                        <a href="#" class="profile-toggle">
+                            <img src="imagen/descarga.png" class="rounded-circle" alt="Profile" width="40" height="40">
+                        </a>
+                        <ul id="profileMenu" class="profile-menu">
+                            <li><a href="#">Ver Perfil</a></li>
+                            <li><a href="#">Configuración</a></li>
+                            <li><a href="#">Notificaciones</a></li>
+                            <li><a href="#">Cerrar Sesión</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <section class="p-4">
+                <h1 class="mb-4">Roles</h1>
+                <!-- Buscador y botón crear -->
+                <form class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" style="width: 200px; height: 38px; font-size: 14px;">
+                        <button class="btn btn-outline-success" type="submit" style="height: 38px;">Buscar</button>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <a href="crear_rol.html" class="btn btn-primary">+ Roles</a>
+                    </div>
+                </form><br>
+
+                <div class="table-responsive bg-white p-3 border rounded shadow-sm">
+                    <table class="table table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Documento</th>
+                                <th>Rol</th>
+                                <th>Estado</th>
+                                <th>Operaciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>001</td>
+                                <td>Juan Pérez</td>
+                                <td>127661182</td>
+                                <td>pendejo</td>
+                                <td>
+                                    <label class="form-check form-switch">
+                                        <span id="estado-text-001">Habilitado</span>
+                                    </label>
+                                </td>
+                                <td class="text-center">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-info btn-sm me-2" title="Ver" data-bs-toggle="modal" data-bs-target="#viewModal" onclick="viewUserDetails('002', 'Gregory Zerpa', 'greecko16@gmail.com', '+57 320 7654321', '7028576', 'Inhabilitado', 'imagen/fc.png')">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                        <button class="btn btn-warning btn-sm me-2" title="Editar" data-bs-toggle="modal" data-bs-target="#editModal" onclick="editUser('002')">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                        <button class="btn btn-danger btn-sm me-2" title="Eliminar" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                        
+                                        <label class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="estado-001" onchange="toggleEstado('001')">
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>002</td>
+                                <td>Gregory Zerpa</td>
+                                <td>7028576</td>
+                                <td>admi</td>
+                                <td>
+                                    <label class="form-check form-switch">
+                                        <span id="estado-text-002">Inhabilitado</span>
+                                    </label>
+                                </td>
+                                <td class="text-center">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-info btn-sm me-2" title="Ver" data-bs-toggle="modal" data-bs-target="#viewModal" onclick="viewUserDetails('002', 'Gregory Zerpa', 'greecko16@gmail.com', '+57 320 7654321', '7028576', 'Inhabilitado', 'imagen/fc.png')">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                        <button class="btn btn-warning btn-sm me-2" title="Editar" data-bs-toggle="modal" data-bs-target="#editModal" onclick="editUser('002')">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                        <button class="btn btn-danger btn-sm me-2" title="Eliminar" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                        
+                                        <label class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="estado-002" onchange="toggleEstado('002')">
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- Agrega más filas según sea necesario -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+
+  <!-- Modal para ver detalles -->
+<div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewModalLabel">Detalles del Usuario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Nombre del Usuario:</strong> <span id="viewNombreUsuario"></span></p>
+                <p><strong>Tipo de Rol:</strong> <span id="viewTipoRol"></span></p>
+                <p><strong>Fecha de Registro:</strong> <span id="viewFecha"></span></p>
+                <p><strong>ID del Usuario:</strong> <span id="viewIdUsuario"></span></p>
+                <p><strong>Descripción:</strong> <span id="viewDescripcion"></span></p>
+                <p><strong>Fecha de Actualización:</strong> <span id="viewFechaActualizacion"></span></p>
+                <p><strong>Permisos:</strong></p>
+                <ul id="viewPermisos"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal para editar -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Editar Usuario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editUserForm">
+                    <div class="mb-3">
+                        <label for="editNombreUsuario" class="form-label">Nombre del Usuario</label>
+                        <input type="text" class="form-control" id="editNombreUsuario" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editTipoRol" class="form-label">Tipo de Rol</label>
+                        <select class="form-select" id="editTipoRol" required>
+                            <option value="administrador">Administrador</option>
+                            <option value="recepcionista">Recepcionista</option>
+                            <option value="usuario">Usuario</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editFecha" class="form-label">Fecha de Registro</label>
+                        <input type="date" class="form-control" id="editFecha" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editIdUsuario" class="form-label">ID del Usuario</label>
+                        <input type="text" class="form-control" id="editIdUsuario" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editDescripcion" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="editDescripcion" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editFechaActualizacion" class="form-label">Fecha de Actualización</label>
+                        <input type="date" class="form-control" id="editFechaActualizacion">
+                    </div>
+                    <div class="mb-3">
+                        <label>Permisos:</label>
+                        <div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="editPermisoVisualizar">
+                                <label class="form-check-label" for="editPermisoVisualizar">Visualizar Información</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="editPermisoEditar">
+                                <label class="form-check-label" for="editPermisoEditar">Editar Información</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="editPermisoBorrar">
+                                <label class="form-check-label" for="editPermisoBorrar">Borrar Información</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="editPermisoHabilitar">
+                                <label class="form-check-label" for="editPermisoHabilitar">Habilitar/Deshabilitar</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="editPermisoDashboard">
+                                <label class="form-check-label" for="editPermisoDashboard">Acceso al Dashboard</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="editPermisoRoles">
+                                <label class="form-check-label" for="editPermisoRoles">Gestión de Roles</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="editPermisoUsuarios">
+                                <label class="form-check-label" for="editPermisoUsuarios">Gestión de Usuarios</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="editPermisoClientes">
+                                <label class="form-check-label" for="editPermisoClientes">Gestión de Clientes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="editPermisoHabitaciones">
+                                <label class="form-check-label" for="editPermisoHabitaciones">Gestión de Habitaciones</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="editPermisoServicios">
+                                <label class="form-check-label" for="editPermisoServicios">Gestión de Servicios</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="editPermisoPaquetes">
+                                <label class="form-check-label" for="editPermisoPaquetes">Gestión de Paquetes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="editPermisoHospedaje">
+                                <label class="form-check-label" for="editPermisoHospedaje">Gestión de Hospedaje</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="editPermisoReservas">
+                                <label class="form-check-label" for="editPermisoReservas">Gestión de Reservas</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal para confirmar eliminación -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Eliminar Usuario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro de que deseas eliminar este usuario?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="confirmDelete">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="java scrip/sc.js"></script>
+</body>
+</html>

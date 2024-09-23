@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Habitación</title>
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="estilos/estilo.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body><!-- Sidebar -->
+<div class="d-flex" id="wrapper">
+    <div class="bg-dark border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading text-white">Navegación</div>
+        <div class="list-group list-group-flush">
+            <a href="dashboard.html" class="list-group-item list-group-item-action bg-dark text-white">Dashboard</a>
+            <a href="roles.html" class="list-group-item list-group-item-action bg-dark text-white">Roles</a>
+            <a href="usuarios.html" class="list-group-item list-group-item-action bg-dark text-white">Usuarios</a>
+            <a href="clientes.html" class="list-group-item list-group-item-action bg-dark text-white">Clientes</a>
+            <a href="habitaciones.html" class="list-group-item list-group-item-action bg-dark text-white">Habitaciones</a>
+            <a href="tipohabitacion.html" class="list-group-item list-group-item-action bg-dark text-white">Tipo de Habitacion</a>
+            <a href="inmueble.html" class="list-group-item list-group-item-action bg-dark text-white">Inmueble</a>
+            <a href="servicios.html" class="list-group-item list-group-item-action bg-dark text-white">Servicios</a>
+            <a href="paquetes.html" class="list-group-item list-group-item-action bg-dark text-white">Paquetes</a>
+            <a href="hospedaje.html" class="list-group-item list-group-item-action bg-dark text-white">Hospedaje</a>
+            <a href="reservas.html" class="list-group-item list-group-item-action bg-dark text-white">Reservas</a>
+            <a href="abono.html" class="list-group-item list-group-item-action bg-dark text-white">Abono</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="page-content-wrapper">
+        <!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+    <div class="container-fluid">
+        <button class="btn btn-primary" id="menu-toggle">☰</button>
+        <div class="mx-auto text-center">
+            <h2 class="Empresa">Valhalla Glamping</h2>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="profile-toggle">
+                <img src="imagen/descarga.png" class="rounded-circle" alt="Profile" width="40" height="40" class="profile-pic">            </a>
+            <ul id="profileMenu" class="profile-menu">
+                <li><a href="#">Ver Perfil</a></li>
+                <li><a href="#">Configuración</a></li>
+                <li><a href="#">Notificaciones</a></li>
+                <li><a href="#">Cerrar Sesión</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- Contenido Principal -->
+            <main class="col bg-light">
+                <!-- Barra Superior -->
+        
+
+                <!-- Sección de Crear Habitación -->
+                <section class="p-4">
+                    <h1 class="mb-4 text-danger">Crear Habitación</h1>
+
+                    <!-- Formulario de Crear Habitación -->
+                    <form action="/guardar-habitacion" method="POST" class="bg-white p-4 border rounded shadow-sm">
+                        <div class="mb-3">
+                            <label for="nombreHabitacion" class="form-label">Nombre de la Habitación</label>
+                            <input type="text" class="form-control" id="nombreHabitacion" name="nombreHabitacion" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="descripcion" class="form-label">Descripción</label>
+                            <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="estado" class="form-label">Estado</label>
+                            <select class="form-select" id="estado" name="estado" required>
+                                <option value="habilitado">Habilitado</option>
+                                <option value="deshabilitado">Deshabilitado</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="tipoHabitacion" class="form-label">Tipo de Habitación</label>
+                            <select class="form-select" id="tipoHabitacion" name="tipoHabitacion" required>
+                                <option value="sencilla">Sencilla</option>
+                                <option value="doble">Doble</option>
+                                <option value="suite">Suite</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="ubicacion" class="form-label">Ubicación</label>
+                            <input type="text" class="form-control" id="ubicacion" name="ubicacion" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-danger">Crear</button>
+                    </form>
+                </section>
+            </main>
+        </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="java scrip/scripts.js"></script>
+<script src="java scrip/scripts_reserva.js"></script>
+</body>
+</html>

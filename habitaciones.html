@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habitacion</title>
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="estilos/estilo.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar -->
+<div class="d-flex" id="wrapper">
+    <div class="bg-dark border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading text-white">Navegación</div>
+        <div class="list-group list-group-flush">
+            <a href="dashboard.html" class="list-group-item list-group-item-action bg-dark text-white">Dashboard</a>
+            <a href="roles.html" class="list-group-item list-group-item-action bg-dark text-white">Roles</a>
+            <a href="usuarios.html" class="list-group-item list-group-item-action bg-dark text-white">Usuarios</a>
+            <a href="clientes.html" class="list-group-item list-group-item-action bg-dark text-white">Clientes</a>
+            <a href="habitaciones.html" class="list-group-item list-group-item-action bg-dark text-white">Habitaciones</a>
+            <a href="tipohabitacion.html" class="list-group-item list-group-item-action bg-dark text-white">Tipo de Habitacion</a>
+            <a href="inmueble.html" class="list-group-item list-group-item-action bg-dark text-white">Inmueble</a>
+            <a href="servicios.html" class="list-group-item list-group-item-action bg-dark text-white">Servicios</a>
+            <a href="paquetes.html" class="list-group-item list-group-item-action bg-dark text-white">Paquetes</a>
+            <a href="hospedaje.html" class="list-group-item list-group-item-action bg-dark text-white">Hospedaje</a>
+            <a href="reservas.html" class="list-group-item list-group-item-action bg-dark text-white">Reservas</a>
+            <a href="abono.html" class="list-group-item list-group-item-action bg-dark text-white">Abono</a>
+            <div class="abajo">
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">Configuración</a>
+        </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="page-content-wrapper">
+        <!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+    <div class="container-fluid">
+        <button class="btn btn-primary" id="menu-toggle">☰</button>
+        <div class="mx-auto text-center">
+            <h2 class="Empresa">Valhalla Glamping</h2>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="profile-toggle">
+                <img src="imagen/descarga.png" class="rounded-circle" alt="Profile" width="40" height="40" class="profile-pic">            </a>
+            <ul id="profileMenu" class="profile-menu">
+                <li><a href="#">Ver Perfil</a></li>
+                <li><a href="#">Configuración</a></li>
+                <li><a href="#">Notificaciones</a></li>
+                <li><a href="#">Cerrar Sesión</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+            <section class="p-4">
+                <h1 class="mb-4">Habitacion</h1>
+                <div class="d-flex mb-3">
+                    <form class="d-flex flex-grow-1 me-2">
+                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                        <button class="btn btn-success" type="submit">Buscar</button>
+                    </form>                    
+                    <a href="crear-habitacion.html" class="btn btn-primary">
+                    Crear
+                    </a>
+                </div>
+                <div class="table-responsive bg-white p-3 border rounded shadow-sm">
+                    <table class="table table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre de la habitación</th>
+                                <th>Descripción</th>
+                                <th>Estado</th>
+                                <th>Operaciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>001</td>
+                                <td>Eco lodge</td>
+                                <td>Un refugio ecológico diseñado para aquellos que buscan una experiencia de conexión con la naturaleza, con materiales sostenibles, iluminación natural y un ambiente tranquilo.</td>
+                                <td>
+                                    <label class="form-check form-switch">
+                                        <span id="estado-text-001">Habilitado</span>
+                                    </label>
+                                </td>
+                                <td class="text-center">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-info btn-sm me-2" title="Ver" onclick="viewUserDetails('001', 'Juan Pérez', 'juan.perez@gmail.com', '+57 317 7726929', 'Habilitado', 'imagen/fc.png')">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                        <button class="btn btn-warning btn-sm me-2" title="Editar">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                        <button class="btn btn- danger btn-sm me-2" title="Eliminar"data-bs-toggle="modal" data-bs-target="#confirmarEliminacion" style="background-color: rgb(230, 92, 92); color: white;">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                        <label class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="estado-001" onchange="toggleEstado('001')">
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>002</td>
+                                <td>Earthy escape</td>
+                                <td>Un espacio acogedor y natural que te permite escapar del estrés de la ciudad, con una decoración que combina elementos de la naturaleza, como madera y piedra, y un ambiente relajante.</td>
+                                <td>
+                                    <label class="form-check form-switch">
+                                        <span id="estado-text-002">Inhabilitado</span>
+                                    </label>
+                                </td>
+                                <td class="text-center">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-info btn-sm me-2" title="Ver" onclick="viewUserDetails('002', 'Gregory Zerpa', 'greecko16@gmail.com', '+57 320 7654321', '7028576', 'Inhabilitado', 'imagen/fc.png')">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                        <button class="btn btn-warning btn-sm me-2" title="Editar">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                        <button class="btn btn- danger btn-sm me-2" title="Eliminar"data-bs-toggle="modal" data-bs-target="#confirmarEliminacion" style="background-color: rgb(230, 92, 92); color: white;">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                        <label class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="estado-002" onchange="toggleEstado('002')">
+                                        </label>
+                                    </div>
+                                </td>
+                                
+                            </tr>
+                            <!-- Agrega más filas según sea necesario -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+<!-- Modal para Confirmar Eliminación -->
+<div class="modal fade" id="confirmarEliminacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"> <!-- Clase añadida para centrar el modal -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmar eliminación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Estás seguro de que deseas eliminar este registro?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <button type="button" class="btn btn-danger">Sí, eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="java scrip/scripts.js"></script>
+<script src="java scrip/scripts_reserva.js"></script>
+
+</body>
+</html>

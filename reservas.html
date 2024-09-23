@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva</title>
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="estilos/estilo.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar -->
+<div class="d-flex" id="wrapper">
+    <div class="bg-dark border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading text-white">Navegación</div>
+        <div class="list-group list-group-flush">
+            <a href="dashboard.html" class="list-group-item list-group-item-action bg-dark text-white">Dashboard</a>
+            <a href="roles.html" class="list-group-item list-group-item-action bg-dark text-white">Roles</a>
+            <a href="usuarios.html" class="list-group-item list-group-item-action bg-dark text-white">Usuarios</a>
+            <a href="clientes.html" class="list-group-item list-group-item-action bg-dark text-white">Clientes</a>
+            <a href="habitaciones.html" class="list-group-item list-group-item-action bg-dark text-white">Habitaciones</a>
+            <a href="tipohabitacion.html" class="list-group-item list-group-item-action bg-dark text-white">Tipo de Habitacion</a>
+            <a href="inmueble.html" class="list-group-item list-group-item-action bg-dark text-white">Inmueble</a>
+            <a href="servicios.html" class="list-group-item list-group-item-action bg-dark text-white">Servicios</a>
+            <a href="paquetes.html" class="list-group-item list-group-item-action bg-dark text-white">Paquetes</a>
+            <a href="hospedaje.html" class="list-group-item list-group-item-action bg-dark text-white">Hospedaje</a>
+            <a href="reservas.html" class="list-group-item list-group-item-action bg-dark text-white">Reservas</a>
+            <a href="abono.html" class="list-group-item list-group-item-action bg-dark text-white">Abono</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="page-content-wrapper">
+        <!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+    <div class="container-fluid">
+        <button class="btn btn-primary" id="menu-toggle">☰</button>
+        <div class="mx-auto text-center">
+            <h2 class="Empresa">Valhalla Glamping</h2>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="profile-toggle">
+                <img src="imagen/descarga.png" class="rounded-circle" alt="Profile" width="40" height="40" class="profile-pic">            </a>
+            <ul id="profileMenu" class="profile-menu">
+                <li><a href="#">Ver Perfil</a></li>
+                <li><a href="#">Configuración</a></li>
+                <li><a href="#">Notificaciones</a></li>
+                <li><a href="#">Cerrar Sesión</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<section class="p-4">
+    <h1 class="mb-4">Reservas</h1>
+    <div class="d-flex mb-3">
+        <form class="d-flex flex-grow-1 me-2">
+            <input class="form-control me-2" type="search" placeholder="Buscar por nombre, correo o teléfono" aria-label="Buscar">
+            <button class="btn btn-success" type="submit">Buscar</button>
+        </form>
+        <button class="btn btn-primary" onclick="window.location.href='nueva_reserva.html'">Agregar Reserva</button>
+    </div>
+
+    <div class="table-responsive bg-white p-3 border rounded shadow-sm">
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Documento</th>
+                    <th>Teléfono</th>
+                    <th>Correo</th>
+                    <th>Fecha de Creación</th>
+                    <th>Fecha de Entrada</th>
+                    <th>Fecha de Salida</th>
+                    <th>Nombre del Paquete</th>
+                    <th>Estado</th>
+                    <th>Operaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>R001</td>
+                    <td>Juan Pérez</td>
+                    <td>127661182</td>
+                    <td>+57 317 7726929</td>
+                    <td>juan.perez@gmail.com</td>
+                    <td>2024-09-01</td>
+                    <td>2024-09-10</td>
+                    <td>2024-09-15</td>
+                    <td>Poseidon</td>
+                    <td>
+                        <label class="form-check form-switch">
+                            <span id="estado-text-001">Habilitado</span>
+                        </label>
+                    </td>
+                    <td class="text-center">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <button class="btn btn-info btn-sm me-2" title="Ver" onclick="viewUserDetails('001', 'Juan Pérez', 'juan.perez@gmail.com', '+57 317 7726929', '127661182', 'Habilitado', 'imagen/sehck.jpg', '2024-09-01', '2024-09-10', '2024-09-15', 'Poseidon')">
+                                <i class="bi bi-eye"></i>
+                            </button>                            
+                            <button class="btn btn-warning btn-sm me-2" title="Editar">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm me-2" title="Eliminar" data-bs-toggle="modal" data-bs-target="#confirmarEliminacion" style="background-color: rgb(230, 92, 92); color: white;">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                            <label class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="estado-001" onchange="toggleEstado('001')">
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>R002</td>
+                    <td>Gregory Zerpa</td>
+                    <td>7028576</td>
+                    <td>+57 320 7654321</td>
+                    <td>greecko16@gmail.com</td>
+                    <td>2024-09-02</td>
+                    <td>2024-09-12</td>
+                    <td>2024-09-20</td>
+                    <td>Zeus</td>
+                    <td>
+                        <label class="form-check form-switch">
+                            <span id="estado-text-002">Inhabilitado</span>
+                        </label>
+                    </td>
+                    <td class="text-center">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <button class="btn btn-info btn-sm me-2" title="Ver" onclick="viewUserDetails('002', 'Gregory Zerpa', 'greecko16@gmail.com', '+57 320 7654321', '7028576', 'Inhabilitado', 'imagen/perfil1.jpg', '2024-09-02', '2024-09-12', '2024-09-20', 'Zeus')">
+                                <i class="bi bi-eye"></i>
+                            </button>                            
+                            <button class="btn btn-warning btn-sm me-2" title="Editar">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm me-2" title="Eliminar" data-bs-toggle="modal" data-bs-target="#confirmarEliminacion" style="background-color: rgb(230, 92, 92); color: white;">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                            <label class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="estado-002" onchange="toggleEstado('002')">
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Agrega más filas según sea necesario -->
+            </tbody>
+        </table>
+    </div>
+</section>
+
+    <!-- Modal para Ver Detalles del Usuario -->
+    <div class="modal fade" id="viewUserModal" tabindex="-1" aria-labelledby="viewUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="viewUserModalLabel">Detalles de la Reserva</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center">
+                    <div class="user-info col-8">
+                        <p><strong>ID:</strong> <span id="viewUserId"></span></p>
+                        <p><strong>Nombre:</strong> <span id="viewUserName"></span></p>
+                        <p><strong>Correo:</strong> <span id="viewUserEmail"></span></p>
+                        <p><strong>Teléfono:</strong> <span id="viewUserPhone"></span></p>
+                        <p><strong>Documento:</strong> <span id="viewUserDocument"></span></p> <!-- Campo para el documento -->
+                        <p><strong>Fecha de Creación:</strong> <span id="viewFechaCreacion"></span></p> <!-- Campo para la fecha de creación -->
+                        <p><strong>Fecha de Entrada:</strong> <span id="viewFechaEntrada"></span></p> <!-- Campo para la fecha de entrada -->
+                        <p><strong>Fecha de Salida:</strong> <span id="viewFechaSalida"></span></p> <!-- Campo para la fecha de salida -->
+                        <p><strong>Paquete:</strong> <span id="viewNombrePaquete"></span></p> <!-- Campo para el nombre del paquete -->
+                        <p><strong>Estado:</strong> <span id="viewUserStatus"></span></p>
+                    </div>
+                    <div class="user-image col-4 text-center">
+                        <img id="viewUserImage" src="imagen/default.png" alt="Imagen del Usuario" class="img-fluid rounded-circle" width="150" height="150">
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<!-- Modal para Confirmar Eliminación -->
+<div class="modal fade" id="confirmarEliminacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"> <!-- Clase añadida para centrar el modal -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmar eliminación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Estás seguro de que deseas eliminar este registro?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <button type="button" class="btn btn-danger">Sí, eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="java scrip/scripts.js"></script>
+<script src="java scrip/scripts_reserva.js"></script>
+
+</body>
+</html>

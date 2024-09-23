@@ -1,0 +1,158 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-size: cover; /* Ajusta la imagen para cubrir toda el área del elemento */
+    background-position: center; /* Centra la imagen en el elemento */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+
+.header-h1{
+    background-position: center;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -11rem;
+    transition: margin 0.2s ease-out;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    padding: 20px;
+}
+
+.sidebar-heading {
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.table thead th {
+    text-align: center;
+}
+
+.table tbody td {
+    text-align: center;
+}
+
+
+.profile-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: rgb(175, 168, 168);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 5px;
+    width: 150px;
+}
+
+.profile-menu li {
+    padding: 10px;
+    text-align: left;
+}
+
+.profile-menu li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.profile-menu li:hover {
+    background-color: #f1f1f1;
+}
+
+/* Toggle Switch base */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider (background) */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+/* Rounded slider */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 2.5px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4CAF50; /* Color del fondo activado */
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px); /* Mueve el círculo a la derecha */
+}
+
+.slider:after {
+    content: 'X';
+    color: white;
+    position: absolute;
+    right: 8px;
+    top: 3px;
+    font-size: 12px;
+}
+
+input:checked + .slider:after {
+    content: '✔'; /* Cambia el icono al activarse */
+left: 8px;
+}
+.abajo{
+    margin-top: 100%; /* Ajusta según el tamaño del contenedor */
+}
+.modal-header {
+    text-align: center;
+    width: 100%;
+}
+
+
+.user-image img {
+    margin-top: 10px; /* Espacio superior para la imagen */
+}
+.modal-content h5{
+    text-align: center; /* Alinea el texto a la derecha */
+    margin-left: 140px; /* Ajusta el margen izquierdo según sea necesario */
+}
+.modal-content img{
+    border-radius: 10px;
+}
+.modal-footer {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+}

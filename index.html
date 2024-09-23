@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio de Sesión</title>
+    <link rel="stylesheet" href="estilos/styles.css">
+</head>
+<body>
+
+    <div class="login-box">
+        <h2 class="form-title">Iniciar Sesión</h2>
+        <form action="inicio.html" method="post" class="login-form">
+            <div class="form-group">
+                <input type="text" name="correo" placeholder="Correo" value="AnuelAA@example.com">
+            </div>
+            <div class="form-group">
+                <input type="password" name="contraseña" placeholder="Contraseña" value="**">
+            </div>
+            <div class="form-buttons">
+                <button type="submit" class="btn-guardar" onclick="event.preventDefault(); window.location.href='dashboard.html'">Ingresar</button>
+            </div>                     
+        </form>
+        <div class="form-links">
+            <a href="restablecer.html" class="link">¿Olvidó su Contraseña?</a>
+            <a href="registro.html" class="link">¿No tienes cuenta? Regístrate</a>
+        </div>
+    </div>
+
+</body>
+</html>

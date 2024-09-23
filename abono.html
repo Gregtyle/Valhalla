@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abono</title>
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="estilos/estilo.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar -->
+<div class="d-flex" id="wrapper">
+    <div class="bg-dark border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading text-white">Navegación</div>
+        <div class="list-group list-group-flush">
+            <a href="dashboard.html" class="list-group-item list-group-item-action bg-dark text-white">Dashboard</a>
+            <a href="roles.html" class="list-group-item list-group-item-action bg-dark text-white">Roles</a>
+            <a href="usuarios.html" class="list-group-item list-group-item-action bg-dark text-white">Usuarios</a>
+            <a href="clientes.html" class="list-group-item list-group-item-action bg-dark text-white">Clientes</a>
+            <a href="habitaciones.html" class="list-group-item list-group-item-action bg-dark text-white">Habitaciones</a>
+            <a href="tipohabitacion.html" class="list-group-item list-group-item-action bg-dark text-white">Tipo de Habitacion</a>
+            <a href="inmueble.html" class="list-group-item list-group-item-action bg-dark text-white">Inmueble</a>
+            <a href="servicios.html" class="list-group-item list-group-item-action bg-dark text-white">Servicios</a>
+            <a href="paquetes.html" class="list-group-item list-group-item-action bg-dark text-white">Paquetes</a>
+            <a href="hospedaje.html" class="list-group-item list-group-item-action bg-dark text-white">Hospedaje</a>
+            <a href="reservas.html" class="list-group-item list-group-item-action bg-dark text-white">Reservas</a>
+            <a href="abono.html" class="list-group-item list-group-item-action bg-dark text-white">Abono</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="page-content-wrapper">
+        <!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+    <div class="container-fluid">
+        <button class="btn btn-primary" id="menu-toggle">☰</button>
+        <div class="mx-auto text-center">
+            <h2 class="Empresa">Valhalla Glamping</h2>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="profile-toggle">
+                <img src="imagen/descarga.png" class="rounded-circle" alt="Profile" width="40" height="40" class="profile-pic">            </a>
+            <ul id="profileMenu" class="profile-menu">
+                <li><a href="#">Ver Perfil</a></li>
+                <li><a href="#">Configuración</a></li>
+                <li><a href="#">Notificaciones</a></li>
+                <li><a href="#">Cerrar Sesión</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<section class="p-4">
+    <h1 class="mb-4">Abonos</h1>
+    <div class="d-flex mb-3">
+        <form class="d-flex flex-grow-1 me-2">
+            <input class="form-control me-2" type="search" placeholder="Buscar por nombre, correo o teléfono" aria-label="Buscar">
+            <button class="btn btn-success" type="submit">Buscar</button>
+        </form>                    
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAbonoModal">Agregar Abono</button>
+    </div>
+
+    <div class="table-responsive bg-white p-3 border rounded shadow-sm">
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID del abono</th>
+                    <th>Reserva asociada</th>
+                    <th>Nombre del cliente</th>
+                    <th>Fecha del Abono</th>
+                    <th>Total</th>
+                    <th>Abono</th>
+                    <th>Restante</th>
+                    <th>Comprobante</th>
+                    <th>Estado</th>
+                    <th>Operaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>R001</td>
+                    <td>Juan Pérez</td>
+                    <td>2024-09-15</td>
+                    <td>$500.00</td>
+                    <td>$150.00</td>
+                    <td>$350.00</td>
+                    <td>Comprobante_001.pdf</td>
+                    <td>
+                        <label class="form-check form-switch">
+                            <span id="estado-text-001">Anulado</span>
+                        </label>
+                    </td>
+                    <td class="text-center">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <button class="btn btn-info btn-sm me-2" title="Ver" onclick="viewAbonoDetails('001', 'R001', 'Juan Pérez', '2024-09-15', '$500.00', '$150.00', '$350.00', 'Comprobante_001.pdf', 'Anulado')">
+                                <i class="bi bi-eye"></i>
+                            </button>                            
+                            <button class="btn btn-warning btn-sm me-2" title="Editar">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <button class="btn btn- danger btn-sm me-2" title="Eliminar"data-bs-toggle="modal" data-bs-target="#confirmarEliminacion" style="background-color: rgb(230, 92, 92); color: white;">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                            <label class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="estado-001" onchange="toggleEstado('001')">
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>002</td>
+                    <td>R002</td>
+                    <td>Gregory Zerpa</td>
+                    <td>2024-09-16</td>
+                    <td>$600.00</td>
+                    <td>$200.00</td>
+                    <td>$400.00</td>
+                    <td>Comprobante_002.pdf</td>
+                    <td>
+                        <label class="form-check form-switch">
+                            <span id="estado-text-002">Comprobado</span>
+                        </label>
+                    </td>
+                    <td class="text-center">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <button class="btn btn-info btn-sm me-2" title="Ver" onclick="viewAbonoDetails('002', 'R002', 'Gregory Zerpa', '2024-09-16', '$600.00', '$200.00', '$400.00', 'Comprobante_002.pdf', 'Comprobado', 'path/to/image.jpg')">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                            <button class="btn btn-warning btn-sm me-2" title="Editar">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <button class="btn btn- danger btn-sm me-2" title="Eliminar"data-bs-toggle="modal" data-bs-target="#confirmarEliminacion" style="background-color: rgb(230, 92, 92); color: white;">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                            <label class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="estado-002" onchange="toggleEstado('002')">
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Agrega más filas según sea necesario -->
+            </tbody>
+        </table>
+    </div>
+</section>
+
+        </div>
+    </div>
+
+<!-- Modal para Ver Detalles del Abono -->
+<div class="modal fade" id="viewAbonoModal" tabindex="-1" aria-labelledby="viewAbonoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center" id="viewAbonoModalLabel">Detalles del Abono</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>ID del Abono:</strong> <span id="viewAbonoId"></span></p>
+                <p><strong>Reserva Asociada:</strong> <span id="viewAbonoReserva"></span></p>
+                <p><strong>Nombre del Cliente:</strong> <span id="viewAbonoCliente"></span></p>
+                <p><strong>Fecha del Abono:</strong> <span id="viewAbonoFecha"></span></p>
+                <p><strong>Total:</strong> <span id="viewAbonoTotal"></span></p>
+                <p><strong>Abono:</strong> <span id="viewAbonoMonto"></span></p>
+                <p><strong>Restante:</strong> <span id="viewAbonoRestante"></span></p>
+                <p><strong>Comprobante:</strong> <span id="viewAbonoComprobante"></span></p>
+                <p><strong>Estado:</strong> <span id="viewAbonoEstado"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Confirmar Eliminación -->
+<div class="modal fade" id="confirmarEliminacion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"> <!-- Clase añadida para centrar el modal -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmar eliminación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Estás seguro de que deseas eliminar este registro?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <button type="button" class="btn btn-danger">Sí, eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal para Agregar Abono -->
+<div class="modal fade" id="addAbonoModal" tabindex="-1" aria-labelledby="addAbonoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addAbonoModalLabel">Agregar Nuevo Abono</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="addAbonoForm">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="abonoReserva" class="form-label">Reserva Asociada</label>
+                        <input type="text" class="form-control" id="abonoReserva" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="abonoCliente" class="form-label">Nombre del Cliente</label>
+                        <input type="text" class="form-control" id="abonoCliente" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="abonoMonto" class="form-label">Monto</label>
+                        <input type="number" class="form-control" id="abonoMonto" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="abonoComprobante" class="form-label">Comprobante</label>
+                        <input type="file" class="form-control" id="abonoComprobante" accept=".pdf, .jpg, .jpeg, .png" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="abonoEstado" class="form-label">Estado</label>
+                        <select class="form-select" id="abonoEstado">
+                            <option value="Habilitado">Comprobado</option>
+                            <option value="Inhabilitado">Anulado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Agregar Abono</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="java scrip/scripts.js"></script>
+<script src="java scrip/script_abono.js"></script>
+
+</body>
+</html>

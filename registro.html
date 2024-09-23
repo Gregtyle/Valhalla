@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="estilos/styles.css">
+</head>
+<body>
+
+    <div class="form-container">
+        <h2 class="form-title">Registro</h2>
+        <form action="registro-exitoso.html" method="post" class="register-form">
+            <div class="form-group">
+                <label for="tipo_documento">Tipo de Documento:</label>
+                <select id="tipo_documento" name="tipo_documento">
+                    <option value="CC">Cédula de Ciudadanía</option>
+                    <option value="TI">Tarjeta de Identidad</option>
+                    <option value="CE">Cédula de Extranjería</option>
+                    <option value="PAS">Pasaporte</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="documento">Nro. Documento:</label>
+                <input type="text" id="documento" name="documento" placeholder="Número de documento">
+            </div>
+            <div class="form-group">
+                <label for="nombres">Nombres:</label>
+                <input type="text" id="nombres" name="nombres" placeholder="Nombres completos">
+            </div>
+            <div class="form-group">
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos completos">
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono" name="telefono" placeholder="Teléfono">
+            </div>
+            <div class="form-group">
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion" placeholder="Dirección">
+            </div>
+            <div class="form-group">
+                <label for="pais">País:</label>
+                <input type="text" id="pais" name="pais" placeholder="País">
+            </div>
+            <div class="form-group">
+                <label for="ciudad">Ciudad:</label>
+                <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad">
+            </div>
+            <div class="form-group">
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" name="correo" placeholder="Correo electrónico">
+            </div>
+            <div class="form-group">
+                <label for="confirmar_correo">Confirmar Correo:</label>
+                <input type="email" id="confirmar_correo" name="confirmar_correo" placeholder="Confirmar correo">
+            </div>
+            <div class="form-group">
+                <label for="contraseña">Contraseña:</label>
+                <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña">
+            </div>
+            <div class="form-group">
+                <label for="confirmar_contraseña">Confirmar Contraseña:</label>
+                <input type="password" id="confirmar_contraseña" name="confirmar_contraseña" placeholder="Confirmar contraseña">
+            </div>
+            <div class="form-buttons">
+                <button type="button" class="btn-cancelar">Cancelar</button>
+                <button type="submit" class="btn-guardar">Guardar</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
